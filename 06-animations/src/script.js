@@ -48,38 +48,38 @@ renderer.setSize(sizes.width, sizes.height)
 
 // Tick using Clock
 // Clock
-// const clock = new THREE.Clock()
+const clock = new THREE.Clock()
 
-// // Animations
-// const tick = () => {
-//    const elapsedTime = clock.getElapsedTime()
-
-//    // Constant Rotation regardless of FPS
-//    // mesh.rotation.y = elapsedTime
-
-//    // Rotation per second
-//    // mesh.rotation.y = elapsedTime * Math.PI * 2
-
-//    // Circular Animation
-//   //  mesh.position.y = Math.sin(elapsedTime)
-//   //  mesh.position.x = Math.cos(elapsedTime)
-
-//    // Circular Animation with Camera
-//    camera.position.y = Math.sin(elapsedTime)
-//    camera.position.x = Math.cos(elapsedTime)
-//    camera.lookAt(mesh.position)
-
-//    renderer.render(scene, camera)
-//    window.requestAnimationFrame(tick)
-// }
-
-// Tick using GreenSock
-gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 })
-gsap.to(mesh.position, { duration: 1, delay: 2, x: -1 })
-
+// Animations
 const tick = () => {
+  const elapsedTime = clock.getElapsedTime()
+
+  // Constant Rotation regardless of FPS
+  // mesh.rotation.y = elapsedTime
+
+  // Rotation per second
+  // mesh.rotation.y = elapsedTime * Math.PI * 2
+
+  // Circular Animation
+  mesh.position.y = Math.sin(elapsedTime)
+  mesh.position.x = Math.cos(elapsedTime)
+
+  // Circular Animation with Camera
+  //  camera.position.y = Math.sin(elapsedTime)
+  //  camera.position.x = Math.cos(elapsedTime)
+  //  camera.lookAt(mesh.position)
+
   renderer.render(scene, camera)
   window.requestAnimationFrame(tick)
 }
+
+// Tick using GreenSock
+// gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 })
+// gsap.to(mesh.position, { duration: 1, delay: 2, x: -1 })
+
+// const tick = () => {
+//   renderer.render(scene, camera)
+//   window.requestAnimationFrame(tick)
+// }
 
 tick()
