@@ -51,6 +51,8 @@ scene.add(camera)
 
 // Controls
 const controls = new OrbitControls(camera, canvas)
+controls.enablePan = false
+controls.enableZoom = false
 controls.enableDamping = true
 
 // Renderer
